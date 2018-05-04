@@ -1,0 +1,17 @@
+.date-cell {
+  padding: 0;
+  border-right: 3px solid black;
+  flex: 0 0 14.28571%;
+  max-width: 14.28571%;
+  cursor: pointer;
+}
+
+.not-in-current-month {
+  color: rgba(0, 0, 0, .5);
+  cursor: auto;
+}
+
+.date-cell .row {
+  padding-left: 8px;
+  padding-top: 3px;
+}

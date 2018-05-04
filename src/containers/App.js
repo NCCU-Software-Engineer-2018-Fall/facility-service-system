@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { Button } from 'reactstrap';
 import './App.css';
+import EmptyMonthlyCalendar from './EmptyMonthlyCalendar';
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <Button color="info">Bootstrap Test</Button>
+      <div className="container">
+        <EmptyMonthlyCalendar />
       </div>
     );
   }
