@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'reactstrap';
 import './DateCell.css';
 
 const DateCell = (props) => {
@@ -19,6 +20,11 @@ const DateCell = (props) => {
       <div className="row">
         <div className="col">
           {props.date.getDate()}
+        </div>
+      </div>
+      <div className="row">
+        <div className="col">
+          <Button color="primary" onClick={() => console.log(props.date.getTime())}>Show Time</Button>
         </div>
       </div>
     </div>
