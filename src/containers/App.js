@@ -3,6 +3,7 @@ import './App.css';
 import EmptyMonthlyCalendar from './EmptyMonthlyCalendar';
 import NavTopBar from '../components/NavTopBar';
 import BasedOnRoomSidebar from './BasedOnRoomSidebar';
+import WeekCalendar from '../components/WeekCalendar';
 
 class App extends Component {
   render() {
@@ -15,7 +16,7 @@ class App extends Component {
               <BasedOnRoomSidebar />
             </div>
             <div className="col-10">
-              <EmptyMonthlyCalendar />
+              <WeekCalendar />
             </div>
           </div>
         </div>
