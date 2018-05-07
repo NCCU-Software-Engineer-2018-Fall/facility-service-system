@@ -1,3 +1,9 @@
 .App {
   text-align: center;
 }
+
+.sidebar {
+  background-color: #EEEEEE;
+  color: black;
+  padding: 50px 20px;
+}

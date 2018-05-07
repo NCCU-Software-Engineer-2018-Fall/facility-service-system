@@ -15,7 +15,7 @@ const WeekRow = (props) => {
   }
 
   return (
-    <div className="row justify-content-center align-items-stretch week-row">
+    <div className="row justify-content-center align-items-stretch seven-cols week-row">
       {datesInWeek}
     </div>
   )

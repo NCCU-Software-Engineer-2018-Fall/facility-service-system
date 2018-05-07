@@ -1,4 +1,12 @@
+.seven-cols .col-1 {
+  padding: 5px;
+  border-right: 1px solid black;
+  flex: 0 0 14.28571%;
+  max-width: 14.28571%;
+  cursor: pointer;
+}
+
 .week-row {
-  height: 14vh;
-  border-bottom: 3px solid black;
+  height: 15vh;
+  border-bottom: 1px solid black;
 }
