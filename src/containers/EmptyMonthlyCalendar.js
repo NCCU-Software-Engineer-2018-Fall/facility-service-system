@@ -5,7 +5,7 @@ class EmptyMonthlyCalendar extends Component {
   render() {
     return (
       <div>
-        <MonthlyCalendar />
+        <MonthlyCalendar/>
       </div>
     );
   }

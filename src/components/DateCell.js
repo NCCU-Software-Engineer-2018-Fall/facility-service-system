@@ -1,5 +1,5 @@
 import React from 'react';
-import './DateCell.css';
+import '../styles/DateCell.css';
 
 const DateCell = (props) => {
   const weekDay = ['週日', '週一', '週二', '週三', '週四', '週五', '週六'];

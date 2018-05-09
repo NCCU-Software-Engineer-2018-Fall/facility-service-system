@@ -1,26 +1,25 @@
 import React, { Component } from 'react';
-import './App.css';
-import EmptyMonthlyCalendar from './EmptyMonthlyCalendar';
+import { BrowserRouter, Route } from 'react-router-dom';
+
+import '../styles/App.css';
+
 import NavTopBar from '../components/NavTopBar';
-import BasedOnRoomSidebar from './BasedOnRoomSidebar';
-import WeekCalendar from '../components/WeekCalendar';
+import Home from '../components/Home';
+
+import Room from './Room';
+import Time from './Time';
 
 class App extends Component {
   render() {
     return (
+      <BrowserRouter>
       <div>
         <NavTopBar />
-        <div className="container-fluid">
-          <div className="row">
-            <div className="col-2 sidebar">
-              <BasedOnRoomSidebar />
-            </div>
-            <div className="col-10">
-              <WeekCalendar />
-            </div>
-          </div>
-        </div>
+        <Route exact path="/" component={Home} />
+        <Route path="/room" component={Room} />
+        <Route path="/time" component={Time} />
       </div>
+      </BrowserRouter>
     );
   }
 }

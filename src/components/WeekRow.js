@@ -1,6 +1,6 @@
 import React from 'react';
 import DateCell from './DateCell';
-import './WeekRow.css';
+import '../styles/WeekRow.css';
 
 const WeekRow = (props) => {
   let datesInWeek = [];

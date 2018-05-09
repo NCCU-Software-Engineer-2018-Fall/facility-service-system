@@ -1,6 +1,6 @@
 import React from 'react';
 import WeekRow from './WeekRow';
-import './MonthlyCalendar.css';
+import '../styles/MonthlyCalendar.css';
 
 const MonthlyCalendar = () => {
   let weeksInMonth = [];
@@ -26,11 +26,15 @@ const MonthlyCalendar = () => {
 
   return (
     <div className="row">
-      <div className="col monthly-calendar">
+      <div className="col monthly-calendar" onClick={handleClick()}>
         {weeksInMonth}
       </div>
     </div>
   )
 };
+
+function handleClick(e) {
+  console.log(e);
+}
 
 export default MonthlyCalendar;
