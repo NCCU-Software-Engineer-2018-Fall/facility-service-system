@@ -1,0 +1,17 @@
+.not-in-current-month {
+  color: rgba(0, 0, 0, .5);
+  cursor: auto !important;
+  background-color: #dddddd !important;
+}
+
+.date-cell {
+  background-color: #ffffff;
+}
+
+.fadeInRight {
+  animation-duration: 150ms;
+}
+
+.fadeInLeft {
+  animation-duration: 150ms;
+}

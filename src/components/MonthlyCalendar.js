@@ -1,17 +1,16 @@
 import React from 'react';
+import {Row, Col} from 'reactstrap';
+
 import WeekRow from './WeekRow';
 import './MonthlyCalendar.css';
 
-const MonthlyCalendar = () => {
+const MonthlyCalendar = (props) => {
   let weeksInMonth = [];
 
-  let currentTime = new Date();
-  let currentYear = currentTime.getFullYear();
+  let firstDate = props.firstDate;
+  let currentYear = firstDate.getFullYear();
   //從0開始算，0代表一月
-  let currentMonth = currentTime.getMonth();
-
-  //當月第一天
-  let firstDate = new Date(currentYear, currentMonth, 1);
+  let currentMonth = firstDate.getMonth();
 
   for (let i = 0; i < 6; i++) {
     let aWeek = [];
@@ -20,16 +19,18 @@ const MonthlyCalendar = () => {
       aWeek.push(thisDate);
     }
     weeksInMonth.push(
-      <WeekRow dates={aWeek} />
+      <WeekRow 
+        dates={aWeek} 
+        firstDate={props.firstDate} />
     );
   }
 
   return (
-    <div className="row">
-      <div className="col monthly-calendar">
-        {weeksInMonth}
-      </div>
-    </div>
+    <Row>
+      <Col className="monthly-calendar">
+        {weeksInMonth }
+      </Col>
+    </Row>
   )
 };
 

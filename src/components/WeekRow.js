@@ -1,23 +1,26 @@
 import React from 'react';
-import DateCell from './DateCell';
+import {Row} from 'reactstrap';
+import DateCellContainer from '../containers/DateCellContainer';
 import './WeekRow.css';
 
 const WeekRow = (props) => {
   let datesInWeek = [];
   for (let i = 0; i < props.dates.length; i++) {
     let isInCurrentMonth = true;
-    if (props.dates[i].getMonth() !== new Date().getMonth())
+    if (props.dates[i].getMonth() !== props.firstDate.getMonth())
       isInCurrentMonth = false;
 
     datesInWeek.push(
-      <DateCell isInCurrentMonth={isInCurrentMonth} date={props.dates[i]} />
+      <DateCellContainer 
+        isInCurrentMonth={isInCurrentMonth} 
+        date={props.dates[i]} />
     );
   }
 
   return (
-    <div className="row justify-content-center align-items-stretch seven-cols week-row">
+    <Row className="justify-content-center align-items-stretch seven-cols week-row">
       {datesInWeek}
-    </div>
+    </Row>
   )
 };
 

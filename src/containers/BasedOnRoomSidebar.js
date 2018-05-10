@@ -5,7 +5,7 @@ class BasedOnRoomSidebar extends Component {
   render() {
     return (
       <div>
-        <Sidebar />
+        <Sidebar type="room"/>
       </div>
     );
   }

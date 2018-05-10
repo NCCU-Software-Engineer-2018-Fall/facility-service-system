@@ -1,0 +1,21 @@
+.welcome-text {
+  margin-top: 10vh;
+  text-align: center;
+}
+
+.welcome-buttons {
+  margin-top: 10vh;
+}
+
+.welcome-button {
+  height: 30vh;
+  width: 30vh;
+  background-color: hsl(225, 72.9%, 62.4%);
+  font-size: 1.5em;
+  border-radius: 10px;
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2), 0 8px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.welcome-button:hover {
+  background-color: hsl(225, 72.9%, 55.4%);
+}
