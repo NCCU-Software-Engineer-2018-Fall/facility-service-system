@@ -1,7 +1,7 @@
 import React from 'react';
-import {Row, Col} from 'reactstrap';
-import { Button } from 'reactstrap';
-import './WelcomeBlock.css';
+import { Row, Col, Button } from 'reactstrap';
+import { Link, withRouter } from 'react-router-dom';
+import '../styles/WelcomeBlock.css';
 
 const WelcomeBlock = () => (
   <div>
@@ -12,17 +12,23 @@ const WelcomeBlock = () => (
       </Col>
     </Row>
     <Row className="justify-content-center welcome-buttons">
-      <Col md="3">
-        <Button className="welcome-button">租借場地：<br></br>依教室查詢</Button>
+      <Col md="3" className="text-center animated tada">
+        <Link to="room">
+          <Button className="welcome-button">租借場地：<br></br>依教室查詢</Button>
+        </Link>
       </Col>
-      <Col md="3">
-        <Button className="welcome-button">租借場地：<br></br>依時間查詢</Button>
+      <Col md="3" className="text-center animated tada">
+        <Link to="time">
+          <Button className="welcome-button">租借場地：<br></br>依時間查詢</Button>
+        </Link>
       </Col>
-      <Col md="3">
-        <Button className="welcome-button">查看我的借用清單</Button>
+      <Col md="3" className="text-center animated tada">
+        <Link to="user">
+          <Button className="welcome-button">查看我的借用清單</Button>
+        </Link>
       </Col>
     </Row>
   </div>
 );
 
-export default WelcomeBlock;
+export default withRouter(WelcomeBlock);

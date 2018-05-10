@@ -9,7 +9,6 @@ class Period extends React.Component {
       flexDirection: 'column',
       alignItems: 'center',
       padding: '10px 0px',
-      gridRowStart: 'span 1',
 
       border: `solid ${borderColor}`,
       borderWidth: '1px 0px 0px 0px',

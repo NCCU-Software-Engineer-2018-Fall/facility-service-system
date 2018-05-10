@@ -25,10 +25,11 @@ class PeriodGroup extends React.Component {
     const divstyle = {
       display: 'grid',
       gridTemplateRows: `${weekHeight}px repeat(15, 65px)`,
+      gridRowStart: '2'
     }
 
     const periodgroup = periods.map((period, i) => <Period key={i} id={period[0]} time={period[1]} />)
-    periodgroup.unshift(<div></div>)
+    // periodgroup.unshift(<div></div>)
     return (
       <div style={divstyle}>{periodgroup}</div>
     )

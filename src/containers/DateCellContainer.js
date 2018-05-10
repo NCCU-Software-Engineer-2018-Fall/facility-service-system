@@ -3,7 +3,7 @@ import { Col } from 'reactstrap';
 import { connect } from 'react-redux';
 
 import DateCell from '../components/DateCell';
-import './DateCellContainer.css';
+import '../styles/DateCellContainer.css';
 
 //FIXME: Try not to include any UI in container 
 class DateCellContainer extends Component {

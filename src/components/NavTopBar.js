@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, withRouter } from 'react-router-dom';
 import {
   Navbar,
   NavbarBrand,
@@ -7,26 +8,26 @@ import {
   NavLink,
   Button
 } from 'reactstrap';
-import './NavTopBar.css';
+import '../styles/NavTopBar.css';
 
 const NavTopBar = (props) => (
   <Navbar color="light" light className="nav-top-bar">
     <NavbarBrand href="/">場地租借系統</NavbarBrand>
     <Nav className="mr-auto">
       <NavItem>
-        <NavLink href="/user">
+        <Link className="nav-link" to="/room">
           依教室查詢
-        </NavLink>
+        </Link>
       </NavItem>
       <NavItem>
-        <NavLink href="/user">
+        <Link className="nav-link" to="/time">
           依時間查詢
-            </NavLink>
+        </Link>
       </NavItem>
       <NavItem>
-        <NavLink href="/user">
+        <Link className="nav-link" to="/user">
           我的借用
-            </NavLink>
+        </Link>
       </NavItem>
     </Nav>
     <span className="navbar-text ml-auto time-info">
@@ -62,4 +63,4 @@ const NavTopBar = (props) => (
   </Navbar>
 );
 
-export default NavTopBar;
+export default withRouter(NavTopBar);

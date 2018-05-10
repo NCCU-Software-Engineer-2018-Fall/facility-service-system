@@ -2,6 +2,7 @@
   "name": "facility-service-system",
   "version": "0.1.0",
   "private": true,
+  "main": "index.js",
   "dependencies": {
     "animate.css": "^3.6.1",
     "bootstrap": "^4.1.0",

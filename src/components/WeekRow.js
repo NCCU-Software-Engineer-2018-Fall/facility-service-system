@@ -1,7 +1,7 @@
 import React from 'react';
 import {Row} from 'reactstrap';
 import DateCellContainer from '../containers/DateCellContainer';
-import './WeekRow.css';
+import '../styles/WeekRow.css';
 
 const WeekRow = (props) => {
   let datesInWeek = [];

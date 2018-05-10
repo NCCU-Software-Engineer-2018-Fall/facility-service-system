@@ -2,7 +2,7 @@ import React from 'react';
 import {Row, Col} from 'reactstrap';
 
 import WeekRow from './WeekRow';
-import './MonthlyCalendar.css';
+import '../styles/MonthlyCalendar.css';
 
 const MonthlyCalendar = (props) => {
   let weeksInMonth = [];
