@@ -1,24 +1,26 @@
 import React from 'react';
+import { Container, Row, Col } from 'reactstrap';
 
 import BasedOnRoomSidebar from './BasedOnRoomSidebar';
 import EmptyMonthlyCalendar from './EmptyMonthlyCalendar';
 import WeekCalendar from '../components/WeekCalendar';
 
+import '../styles/Room.css'
+
 const Room = () => {
   return (
-    <div>
-      <div className="container-fluid">
-        <div className="row">
-          <div className="col-2 sidebar">
-            <BasedOnRoomSidebar />
-          </div>
-          <div className="col-10">
-            <EmptyMonthlyCalendar />
-            {/* <WeekCalendar /> */}
-          </div>
-        </div>
-      </div>
-    </div>
+    <Container fluid>
+      <Row>
+        <Col md="2" className="sidebar">
+          <BasedOnRoomSidebar />
+        </Col>
+        <Col md="10" className='room-weekcalendar'>
+          {/* <EmptyMonthlyCalendar /> */}
+          <WeekCalendar />
+        </Col>
+      </Row>
+    </Container>
+
   )
 };
 

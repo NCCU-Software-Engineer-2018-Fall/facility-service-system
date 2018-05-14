@@ -1,0 +1,14 @@
+:root{
+  --borderColor: #ddd;
+}
+
+.period{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 0px;
+
+  border: solid var(--borderColor);
+  border-width: 1px 0px 0px 0px;
+
+}

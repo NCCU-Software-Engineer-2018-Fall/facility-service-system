@@ -1,0 +1,13 @@
+:root{
+  --borderColor: #ddd;
+
+  --cell-height: 65px;
+}
+
+.cell-column{
+  display: grid;
+  grid-template-rows: repeat(14, var(--cell-height));
+  border: solid var(--borderColor);
+  border-width: 0px 0px 0px 1px;
+
+}

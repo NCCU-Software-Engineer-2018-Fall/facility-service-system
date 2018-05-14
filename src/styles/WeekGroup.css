@@ -1,0 +1,7 @@
+.week-group{
+  width: calc(500% / 6 - 1em);
+  position: fixed;
+  display: flex;
+  padding-left: 100px;
+  background-color: #fff;
+}

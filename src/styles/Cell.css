@@ -1,0 +1,12 @@
+:root{
+  --borderColor: #ddd;
+
+  --default: none;
+  --borrowed: #c6dafc;
+  --disabled: #e0e0e0;
+}
+
+.cell{
+  border: solid var(--borderColor);
+  border-width: 1px 0px 0px 0px;
+}

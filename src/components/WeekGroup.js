@@ -1,5 +1,6 @@
 import React from 'react';
 import Week from './Week';
+import '../styles/WeekGroup.css'
 
 const weeks = [
   {
@@ -38,26 +39,12 @@ const weeks = [
     weekday: '日'
   },
 ]
+const weekgroup = weeks.map((week, i) => <Week key={i} month={week.month} day={week.day} weekday={week.weekday} />)
 
-class WeekGroup extends React.Component {
-  render () {
-    const divstyle={
-      // display: 'flex',
-      // position: 'fixed',
-
-      gridColumnStart: '2',
-      gridColumnEnd: '3',
-      display: 'grid',
-      gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr 1fr 1fr'
-    }
-
-    const weekgroup = weeks.map((week, i) => <Week key={i} month={week.month} day={week.day} weekday={week.weekday} />)
-    return (
-      <div style={divstyle}>
-        {weekgroup}
-      </div>
-    )
-  }
-}
+const WeekGroup = () => (
+  <div className='week-group'>
+    {weekgroup}
+  </div>
+)
 
 export default WeekGroup;
