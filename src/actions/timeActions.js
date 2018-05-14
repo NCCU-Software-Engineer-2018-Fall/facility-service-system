@@ -1,13 +1,13 @@
-export function shiftForwardFirstDate(date) {
+export function setMonth(year, month, date) {
   return {
-    type: 'SHIFT_FORWARD_FIRST_DATE',
-    payload: date
-  };
+    type: 'SET_MONTH',
+    payload: new Date(year, month, date)
+  }
 }
 
-export function shiftBackFirstDate(date) {
+export function setWeek(year, month, date) {
   return {
-    type: 'SHIFT_BACK_FIRST_DATE',
-    payload: date
+    type: 'SET_WEEK',
+    payload: new Date(year, month, date)
   }
 }

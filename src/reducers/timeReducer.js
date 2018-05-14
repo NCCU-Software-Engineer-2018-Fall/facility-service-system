@@ -1,36 +1,13 @@
 const timeReducer = (state = {
-  firstDate: new Date()
+  firstDate: new Date(new Date().getFullYear(), new Date().getMonth(), 1)
 }, action) => {
   switch(action.type) {
-    case 'SHIFT_FORWARD_FIRST_DATE':
-      let shiftForwardYear = action.payload.getFullYear();
-      let shiftForwardMonth = action.payload.getMonth() + 1;
-      if (shiftForwardMonth === 12) {
-        shiftForwardMonth = 0;
-        shiftForwardYear++;
-      }
-      
-      const shiftForwardDate = new Date(shiftForwardYear, shiftForwardMonth, 1);
-
-      console.log(shiftForwardDate);
+    case 'SET_MONTH':
+      let setYear = action.payload.getFullYear();
+      let setMonth = action.payload.getMonth();
       state = {
         ...state,
-        firstDate: shiftForwardDate
-      }
-      break;
-    case 'SHIFT_BACK_FIRST_DATE':
-      let shiftBackYear = action.payload.getFullYear();
-      let shiftBackMonth = action.payload.getMonth() - 1;
-      if (shiftBackMonth === -1) {
-        shiftBackMonth = 11;
-        shiftBackYear--;
-      }
-
-      const shiftBackDate = new Date(shiftBackYear, shiftBackMonth, 1);
-
-      state = {
-        ...state,
-        firstDate: shiftBackDate
+        firstDate: new Date(setYear, setMonth, 1)
       }
       break;
     default:
