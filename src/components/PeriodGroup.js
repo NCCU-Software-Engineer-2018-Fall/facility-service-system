@@ -1,5 +1,6 @@
 import React from 'react';
 import Period from './Period';
+import '../styles/PeriodGroup.css'
 
 const periods = [
   ['A', '0600~0700'],
@@ -18,22 +19,10 @@ const periods = [
   ['F', '0600~0700'],
   ['G', '0600~0700']
 ]
-const weekHeight = 60
+const periodgroup = periods.map((period, i) => <Period key={i} id={period[0]} time={period[1]} />)
 
-class PeriodGroup extends React.Component {
-  render() {
-    const divstyle = {
-      display: 'grid',
-      gridTemplateRows: `${weekHeight}px repeat(15, 65px)`,
-      gridRowStart: '2'
-    }
-
-    const periodgroup = periods.map((period, i) => <Period key={i} id={period[0]} time={period[1]} />)
-    // periodgroup.unshift(<div></div>)
-    return (
-      <div style={divstyle}>{periodgroup}</div>
-    )
-  }
-}
+const PeriodGroup = () => (
+  <div className='period-group'>{periodgroup}</div>
+)
 
 export default PeriodGroup;

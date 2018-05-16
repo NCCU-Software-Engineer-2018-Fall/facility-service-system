@@ -1,6 +1,6 @@
 import React from 'react';
-// import WeekTemp from './WeekTemp';
 import CellColumn from './CellColumn';
+import '../styles/CellGroup.css'
 
 const weeks = [
   {
@@ -39,22 +39,10 @@ const weeks = [
     weekday: '日'
   },
 ]
+const weekgroup = weeks.map((week, i) => <CellColumn key={i} />)
 
-class CellGroup extends React.Component {
-  render() {
-    const divstyle = {
-      display: 'grid',
-      gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr 1fr 1fr',
-      gridColumnStart: '2',
-      gridRowStart: '2',
-
-    }
-    const weekgroup = weeks.map((week, i) => <CellColumn key={i} />)
-
-    return (
-      <div style={divstyle}>{weekgroup}</div>
-    )
-  }
-}
+const CellGroup = () => (
+  <div className='cell-group'>{weekgroup}</div>
+)
 
 export default CellGroup;

@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/Cell.css';
 
 const borderColor = '#ddd'
 
@@ -9,35 +10,10 @@ class Cell extends React.Component {
       status: 'default'
     }
   }
-
   render() {
-    const statusBGC = {
-      default: 'none',
-      borrowed: '#c6dafc',
-      disabled: '#e0e0e0'
-    }
-
-    const divstyle = {
-      border: `solid ${borderColor}`,
-      borderWidth: '1px 0px 0px 0px',
-
-      background: statusBGC[this.state.status]
-    }
-
     return (
-      <div style={divstyle} onClick={this.click.bind(this)}>{this.state.status}</div>
+      <div className='cell'></div>
     )
-  }
-  click(e) {
-    if (this.state.status === 'default') {
-      this.setState({
-        status: 'borrowed'
-      })
-    } else {
-      this.setState({
-        status: 'default'
-      })
-    }
   }
 }
 

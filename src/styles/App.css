@@ -5,3 +5,7 @@
 .App {
   text-align: center;
 }
+
+body::-webkit-scrollbar {
+  display: none;
+}

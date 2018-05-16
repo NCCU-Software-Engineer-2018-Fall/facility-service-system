@@ -1,5 +1,6 @@
 import React from 'react';
 import Cell from './Cell';
+import '../styles/CellColumn.css'
 
 const periods = [
   ['A', '0600~0700'],
@@ -18,44 +19,13 @@ const periods = [
   ['F', '0600~0700'],
   ['G', '0600~0700']
 ]
-const cellHeight = 65
-const weekHeight = 60
-const borderColor = '#ddd'
 
-class CellColumn extends React.Component {
-  render() {
-    const divstyle = {
-      display: 'grid',
-      gridTemplateRows: `${weekHeight}px repeat(15, ${cellHeight}px)`,
-      border: `solid ${borderColor}`,
-      borderWidth: '0px 0px 0px 1px',
-      // paddingTop: '65px'
-    }
-    const weekstyle = {
-      // position: 'fixed',
+const cells = periods.map((period, i) => <Cell key={i} />)
 
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-      backgroundColor: 'white'
-    }
-    const weekdaystyle = {
-      fontSize: 28,
-      fontWeight: 'bold'
-    }
-
-    const cells = periods.map((period, i) => <Cell key={i} />)
-    return (
-      <div style={divstyle} >
-        {/* <div id="week" style={weekstyle}>
-          <div id="weekdate">{this.props.month}月{this.props.day}日</div>
-          <div id="weekday" style={weekdaystyle} >{this.props.weekday}</div>
-        </div> */}
-        {cells}
-      </div>
-    )
-  }
-}
+const CellColumn = () => (
+  <div className='cell-column'>
+    {cells}
+  </div>
+)
 
 export default CellColumn;
