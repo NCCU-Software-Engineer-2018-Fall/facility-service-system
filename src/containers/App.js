@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import '../styles/App.css';
 import WelcomeBlock from '../components/WelcomeBlock';
-import NavTopBarRouter from '../routers/NavTopBarRouter';
+import NavTopBar from '../components/NavTopBar';
 import Room from './Room';
 import TimeSearchRouter from '../routers/TimeSearchRouter';
 
@@ -11,7 +11,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <NavTopBarRouter />
+        <NavTopBar />
         <Switch>
           <Route path="/system" component={WelcomeBlock} />
           <Route path="/room" component={Room} />

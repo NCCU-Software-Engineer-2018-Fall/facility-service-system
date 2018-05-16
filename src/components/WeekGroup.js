@@ -2,49 +2,34 @@ import React from 'react';
 import Week from './Week';
 import '../styles/WeekGroup.css'
 
-const weeks = [
-  {
-    month: '5',
-    day: '1',
-    weekday: '一'
-  },
-  {
-    month: '5',
-    day: '1',
-    weekday: '二'
-  },
-  {
-    month: '5',
-    day: '1',
-    weekday: '三'
-  },
-  {
-    month: '5',
-    day: '1',
-    weekday: '四'
-  },
-  {
-    month: '5',
-    day: '1',
-    weekday: '五'
-  },
-  {
-    month: '5',
-    day: '1',
-    weekday: '六'
-  },
-  {
-    month: '5',
-    day: '1',
-    weekday: '日'
-  },
-]
-const weekgroup = weeks.map((week, i) => <Week key={i} month={week.month} day={week.day} weekday={week.weekday} />)
+const WeekGroup = (props) => {
+  let weeks = [];
+  const weekDay = ['日', '一', '二', '三', '四', '五', '六'];
+  let weekFirstDate = props.weekFirstDate;
 
-const WeekGroup = () => (
-  <div className='week-group'>
-    {weekgroup}
-  </div>
-)
+  for (let i = 0; i < 7; i++) {
+    let thisDate = new Date(
+      weekFirstDate.getFullYear(),
+      weekFirstDate.getMonth(),
+      weekFirstDate.getDate() + i);
+
+    let aDay = {
+      month: thisDate.getMonth() + 1,
+      day: thisDate.getDate(),
+      weekday: weekDay[thisDate.getDay()]
+    }
+    weeks.push(aDay);
+  }
+
+  const weekgroup = weeks.map((week, i) =>
+    <Week key={i} month={week.month} day={week.day} weekday={week.weekday} />
+  );
+
+  return (
+    <div className='week-group'>
+      {weekgroup}
+    </div>
+  )
+};
 
 export default WeekGroup;

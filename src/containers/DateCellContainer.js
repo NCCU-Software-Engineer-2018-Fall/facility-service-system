@@ -30,4 +30,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, {})(DateCellContainer);
+export default connect(mapStateToProps)(DateCellContainer);

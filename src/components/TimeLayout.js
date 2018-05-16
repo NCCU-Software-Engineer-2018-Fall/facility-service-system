@@ -3,26 +3,29 @@ import { Container, Row, Col } from 'reactstrap';
 
 import '../styles/TimeLayout.css';
 import BasedOnRoomSidebar from '../containers/BasedOnRoomSidebar';
-import EmptyMonthlyCalendar from '../containers/EmptyMonthlyCalendar';
-import WeekCalendar from '../components/WeekCalendar';
+import MonthlyCalendarContainer from '../containers/MonthlyCalendarContainer';
+import WeeklyCalendarContainer from '../containers/WeeklyCalendarContainer';
 
 const TimeLayout = ({ match }) => {
   let calendar = null;
   if (match.params.type === undefined) {
-    calendar = <EmptyMonthlyCalendar />;
-  } 
+    calendar = <MonthlyCalendarContainer />;
+  }
   else if (match.params.type === 'month') {
     calendar = (
-      <EmptyMonthlyCalendar
+      <MonthlyCalendarContainer
         year={match.params.year}
         month={match.params.month}
         date={match.params.date} />
     );
   }
   else if (match.params.type === 'week') {
-      calendar = (
-        <WeekCalendar />
-      );
+    calendar = (
+      <WeeklyCalendarContainer
+        year={match.params.year}
+        month={match.params.month}
+        date={match.params.date} />
+    );
   }
 
   return (

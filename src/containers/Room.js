@@ -2,7 +2,6 @@ import React from 'react';
 import { Container, Row, Col } from 'reactstrap';
 
 import BasedOnRoomSidebar from './BasedOnRoomSidebar';
-import EmptyMonthlyCalendar from './EmptyMonthlyCalendar';
 import WeekCalendar from '../components/WeekCalendar';
 
 import '../styles/Room.css'
