@@ -10,3 +10,7 @@
   border: solid var(--borderColor);
   border-width: 1px 0px 0px 0px;
 }
+
+.selected-day {
+  background-color: #c6dafc;
+}

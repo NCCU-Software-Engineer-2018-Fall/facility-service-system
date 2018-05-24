@@ -1,14 +1,14 @@
 import React from 'react';
-import WeekGroupContainer from '../containers/WeekGroupContainer';
+import WeekGroup from './WeekGroup';
 import CellGroup from './CellGroup';
 import PeriodGroup from './PeriodGroup';
 import '../styles/WeekCalendar.css'
 
-const WeekCalendar = () => (
+const WeekCalendar = (props) => (
   <div className='weekcalendar'>
-    <WeekGroupContainer />
+    <WeekGroup weekFirstDate={props.weekFirstDate} />
     <PeriodGroup />
-    <CellGroup />
+    <CellGroup weekFirstDate={props.weekFirstDate} />
   </div>
 )
 

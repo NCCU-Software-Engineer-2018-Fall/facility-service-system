@@ -5,7 +5,7 @@
 .sidebar-item {
   font-size: 1.2em;
   margin-top: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 5px;
   padding: 5px;
 }
 
@@ -14,6 +14,24 @@
   margin: 0;
   padding: 0;
   height: 100%; 
-  position: fixed; 
   overflow: auto;
+}
+
+.date-list {
+  padding: 0;
+  margin-top: 20px;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+.custom-control-label::before, 
+.custom-control-label::after {
+top: .8rem;
+width: 1.25rem;
+height: 1.25rem;
+}
+
+.place-button button {
+  margin-right: 5px;
+  margin-bottom: 5px; 
 }

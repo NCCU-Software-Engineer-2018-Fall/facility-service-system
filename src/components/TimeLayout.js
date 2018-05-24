@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Row, Col } from 'reactstrap';
 
 import '../styles/TimeLayout.css';
-import BasedOnRoomSidebar from '../containers/BasedOnRoomSidebar';
+import BasedOnTimeSidebar from '../containers/BasedOnTimeSidebar';
 import MonthlyCalendarContainer from '../containers/MonthlyCalendarContainer';
 import WeeklyCalendarContainer from '../containers/WeeklyCalendarContainer';
 
@@ -32,7 +32,7 @@ const TimeLayout = ({ match }) => {
     <Container fluid>
       <Row>
         <Col md="2" className="sidebar">
-          <BasedOnRoomSidebar />
+          <BasedOnTimeSidebar />
         </Col>
         <Col md="10">
           {calendar}

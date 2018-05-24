@@ -4,15 +4,12 @@ import '../styles/Cell.css';
 const borderColor = '#ddd'
 
 class Cell extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      status: 'default'
-    }
-  }
   render() {
+    let { selectDateHandler, symbol, toggleClass } = this.props;
+    let {day, month, year} = this.props.date;
+    let className = ['cell', toggleClass];
     return (
-      <div className='cell'></div>
+      <div className={className.join(' ').trim()} onClick={() => { selectDateHandler(new Date(year, month - 1, day), symbol); console.log(symbol);}}></div>
     )
   }
 }

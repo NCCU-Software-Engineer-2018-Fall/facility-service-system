@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Row, Col } from 'reactstrap';
 
-import BasedOnRoomSidebar from './BasedOnRoomSidebar';
+import BasedOnTimeSidebar from './BasedOnTimeSidebar';
 import WeekCalendar from '../components/WeekCalendar';
 
 import '../styles/Room.css'
@@ -11,7 +11,7 @@ const Room = () => {
     <Container fluid>
       <Row>
         <Col md="2" className="sidebar">
-          <BasedOnRoomSidebar />
+          <BasedOnTimeSidebar />
         </Col>
         <Col md="10" className='room-weekcalendar'>
           {/* <EmptyMonthlyCalendar /> */}

@@ -25,8 +25,8 @@ class WeeklyCalendarContainer extends Component {
       }
     }
     return (
-      <div>
-        <WeekCalendar />
+      <div className="room-weekcalendar">
+        <WeekCalendar weekFirstDate={weekFirstDate} />
       </div>
     );
   }

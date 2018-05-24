@@ -1,31 +1,33 @@
 import React from 'react';
-import Cell from './Cell';
+import CellContainer from '../containers/CellContainer';
 import '../styles/CellColumn.css'
 
 const periods = [
   ['A', '0600~0700'],
-  ['B', '0600~0700'],
-  ['1', '0600~0700'],
-  ['2', '0600~0700'],
-  ['3', '0600~0700'],
-  ['4', '0600~0700'],
-  ['C', '0600~0700'],
-  ['D', '0600~0700'],
-  ['5', '0600~0700'],
-  ['6', '0600~0700'],
-  ['7', '0600~0700'],
-  ['8', '0600~0700'],
-  ['E', '0600~0700'],
-  ['F', '0600~0700'],
-  ['G', '0600~0700']
+  ['B', '0700~0800'],
+  ['1', '0800~0900'],
+  ['2', '0900~1000'],
+  ['3', '1000~1100'],
+  ['4', '1100~1200'],
+  ['C', '1200~1300'],
+  ['D', '1300~1400'],
+  ['5', '1400~1500'],
+  ['6', '1500~1600'],
+  ['7', '1600~1700'],
+  ['8', '1700~1800'],
+  ['E', '1800~1900'],
+  ['F', '1900~2000'],
+  ['G', '2000~2100']
 ]
 
-const cells = periods.map((period, i) => <Cell key={i} />)
+const CellColumn = (props) => {
+  const cells = periods.map((period, i) => <CellContainer key={i} symbol={period[0]} date={props.date} />)
 
-const CellColumn = () => (
-  <div className='cell-column'>
-    {cells}
-  </div>
-)
+  return (
+    <div className='cell-column'>
+      {cells}
+    </div>
+  )
+}
 
 export default CellColumn;
