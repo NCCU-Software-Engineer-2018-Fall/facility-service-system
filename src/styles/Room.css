@@ -4,3 +4,7 @@
   overflow: scroll;
   padding: 0;
 }
+
+.room-weekcalendar::-webkit-scrollbar {
+    display:none
+}
