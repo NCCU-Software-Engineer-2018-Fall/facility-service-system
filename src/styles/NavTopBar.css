@@ -2,6 +2,10 @@
   height: 10vh;
 }
 
+.navbar-brand{
+  font-weight: bold;
+}
+
 .time-info {
   font-size: 1.2em;
   font-weight: bold;

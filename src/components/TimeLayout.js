@@ -34,7 +34,7 @@ const TimeLayout = ({ match }) => {
         <Col md="2" className="sidebar">
           <BasedOnTimeSidebar />
         </Col>
-        <Col md="10">
+        <Col md="10" className="special-col">
           {calendar}
         </Col>
       </Row>

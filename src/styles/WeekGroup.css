@@ -1,5 +1,6 @@
 .week-group{
-  width: calc(500% / 6 - 1em);
+  
+  width: calc(500% / 6);
   position: fixed;
   display: flex;
   padding-left: 100px;

@@ -1,11 +1,9 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Link } from 'react-router-dom';
 import {
   Navbar,
-  NavbarBrand,
   Nav,
   NavItem,
-  NavLink
 } from 'reactstrap';
 
 import '../styles/NavTopBar.css';
@@ -15,7 +13,7 @@ import MonthControlWidget from '../containers/MonthControlWidget';
 const NavTopBar = (props) => {
   return (
     <Navbar color="light" light className="nav-top-bar">
-      <NavbarBrand href="/">場地租借系統</NavbarBrand>
+      <Link to="/system" className="navbar-brand">場地租借系統</Link>
 
       <Switch>
         <Route exact path="/system" />
@@ -31,9 +29,9 @@ const NavTopBar = (props) => {
       
       <Nav className="ml-auto">
         <NavItem>
-          <NavLink href="/user">
+          <Link to="/user">
             使用者
-        </NavLink>
+          </Link>
         </NavItem>
       </Nav>
     </Navbar>
