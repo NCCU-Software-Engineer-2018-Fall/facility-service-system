@@ -1,8 +1,6 @@
 import React from 'react';
 import '../styles/Cell.css';
 
-const borderColor = '#ddd'
-
 class Cell extends React.Component {
   render() {
     let { selectDateHandler, symbol, toggleClass } = this.props;

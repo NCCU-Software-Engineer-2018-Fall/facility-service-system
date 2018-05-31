@@ -1,8 +1,17 @@
+import { loadState } from '../localstorage';
+console.log(loadState().studentId, loadState().isLogin);
+
 const loginReducer = (
+  // state = {
+  //   studentId: loadState().studentId || '',
+  //   isLogin: loadState().isLogin || false
+  // }
   state = {
     studentId: '',
     isLogin: false
-  },action
+  }
+  
+  ,action
 ) => {
   switch (action.type) {
     case 'SET_LOGIN':
@@ -10,9 +19,13 @@ const loginReducer = (
       let isLogin = action.isLogin
 
       return {
-        studentId: studentId,
-        isLogin: isLogin
+        studentId,
+        isLogin
       }
+
+    case 'INIT_LOGIN':
+      console.log(loadState());
+      return loadState()
   
     default:
       return state

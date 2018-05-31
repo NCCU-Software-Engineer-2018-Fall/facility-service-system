@@ -1,0 +1,13 @@
+.building-collapse{
+  margin: 30px auto;
+  text-align: center;
+
+}
+
+.building-name{
+  padding: 10px 0px;
+  cursor: pointer;
+  border: solid #70b5ff;
+  border-width: 2px 2px 5px 2px;
+  border-radius: 5px;
+}
