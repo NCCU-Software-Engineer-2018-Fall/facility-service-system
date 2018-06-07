@@ -1,6 +1,9 @@
 const appointmentReducer = (state = {
   selectDates: [],
-  borrowEveryWeekPeriod: {}
+  selectedBuilding: [],
+  isBorrowEveryWeek: false,
+  borrowStartDate: '',
+  borrowEndDate: ''
 }, action) => {
   switch (action.type) {
     case 'SELECT_DATE':
@@ -13,19 +16,59 @@ const appointmentReducer = (state = {
           done = true;
         }
       }
-      if(done === false)
+      if (done === false)
         newSelectDates = [...state.selectDates, action.payload];
-      
+
       state = {
         ...state,
         selectDates: newSelectDates
       };
       break;
-    case 'BORROW_EVERY_WEEK':
+    case 'SELECT_BUILDING':
+      let done2 = false;
+      let newSelectedBuilding = [...state.selectedBuilding];
+      for (let i = 0; i < state.selectedBuilding.length; i++) {
+        if (action.payload === state.selectedBuilding[i]) {
+          newSelectedBuilding.splice(i, 1);
+          done2 = true;
+          break;
+        }
+      }
+      if (done2 === false)
+        newSelectedBuilding = [...state.selectedBuilding, action.payload];
+
       state = {
         ...state,
-        borrowEveryWeekPeriod: action.payload
+        selectedBuilding: newSelectedBuilding
       };
+      break;
+    case 'SELECT_EVERY_WEEK_BOX':
+      state = {
+        ...state,
+        isBorrowEveryWeek: !state.isBorrowEveryWeek,
+      }
+      break;
+    case 'SET_START_DATE':
+      state = {
+        ...state,
+        borrowStartDate: action.payload
+      }
+      break;
+    case 'SET_END_DATE':
+      state = {
+        ...state,
+        borrowEndDate: action.payload
+      }
+      break;
+    case 'RESET_APPOINTMENT':
+      state = {
+        ...state,
+        selectDates: [],
+        selectedBuilding: [],
+        isBorrowEveryWeek: false,
+        borrowStartDate: '',
+        borrowEndDate: ''
+      }
       break;
     default:
       break;

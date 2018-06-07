@@ -11,36 +11,8 @@ import '../styles/Login.css';
 
 
 class Login extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      studentId: '',
-      redirectToReferrer: false
-    }
-  }
-
-  login = () => {
-    const studentId = document.forms["login"]["studentId"]
-    if (studentId.value == '' || isNaN(studentId.value) || studentId.value.length !== 9){ 
-      alert('輸入格式錯誤(9位數字)')
-      studentId.value = ''
-      return
-    }
-
-    fakeAuth.authenticate(() => {
-      this.setState({ 
-        studentId: studentId.value,
-        redirectToReferrer: true
-      });
-      // console.log(this.state.studentId, this.state.redirectToReferrer);
-      localStorage.setItem(this.state.studentId, this.state.redirectToReferrer)
-    });
-  };
-
   render() {
-    const { redirectToReferrer } = this.state;
-
-    if (redirectToReferrer) {
+    if (this.props.isLogin) {
       return <Redirect to="/system" />;
     }
 
@@ -56,7 +28,10 @@ class Login extends React.Component {
                   <Input type="text" id="studentId" name="stuentId"></Input>
               </Form>
             </CardBody>
-            <Button onClick={this.login}>Log in</Button>
+            <Button onClick={() => {
+                const studentId = document.forms["login"]["studentId"];
+                this.props.authenticate(studentId.value);
+            }}>Log in</Button>
           </Card>
         </Col>
         </Row>

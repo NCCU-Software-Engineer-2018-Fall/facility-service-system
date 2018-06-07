@@ -5,9 +5,35 @@ export function selectDate(date, time) {
   }
 };
 
-export function borrowEveryWeek(startDate, endDate) {
+export function selectBuilding(building) {
   return {
-    type: 'BORROW_EVERY_WEEK',
-    payload: { start: startDate, end: endDate }
+    type: 'SELECT_BUILDING',
+    payload: building
   }
-}
+};
+
+export function selectEveryWeekBox() {
+  return {
+    type: 'SELECT_EVERY_WEEK_BOX'
+  }
+};
+
+export function setStartDate(date) {
+  return {
+    type: 'SET_START_DATE',
+    payload: date
+  }
+};
+
+export function setEndDate(date) {
+  return {
+    type: 'SET_END_DATE',
+    payload: date
+  }
+};
+
+export function resetAppointment() {
+  return {
+    type: 'RESET_APPOINTMENT'
+  }
+};

@@ -2,25 +2,20 @@ import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import '../styles/App.css';
-// import WelcomeBlock from '../components/WelcomeBlock';
-// import NavTopBar from '../components/NavTopBar';
-// import Room from './Room';
-// import TimeSearchRouter from '../routers/TimeSearchRouter';
-
 import Protected from './Protected';
-import Login from '../components/Login';
+import LoginContainer from '../containers/LoginContainer';
 
 class App extends Component {
   render() {
     const currentPath = window.location.pathname
+    
     return (
       <div>
-        <Route exact path="/" component={Login} />
-        <Route path="/login" component={Login} />
-
-        {currentPath.includes('login') ? 
+        {currentPath.includes('login') ?
           '' : <Protected />
         }
+        <Route exact path="/" component={LoginContainer} />
+        <Route path="/login" component={LoginContainer} />
       </div>
     );
   }

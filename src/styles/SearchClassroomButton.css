@@ -1,0 +1,20 @@
+.pop-up-content {
+  margin-top: 15px;
+}
+
+.pop-up-content-left {
+  text-align: left;
+}
+
+.available-classroom-list {
+  width: 100%;
+  margin: auto;
+}
+
+.available-classroom {
+  margin-bottom: 10px;
+}
+
+.swal-bootstrap-button {
+  margin-right: 15px;
+}

@@ -7,6 +7,7 @@ import { setMonth } from '../actions/timeActions';
 class MonthlyCalendarContainer extends Component {
   render() {
     let { year, month, date, firstDate } = this.props;
+    console.log(firstDate);
     if(year == undefined) {
       let now = new Date();
       if (firstDate.getFullYear() != now.getFullYear() || firstDate.getMonth() != now.getMonth()) {

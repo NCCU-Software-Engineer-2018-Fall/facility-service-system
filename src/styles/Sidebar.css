@@ -35,3 +35,7 @@ height: 1.25rem;
   margin-right: 5px;
   margin-bottom: 5px; 
 }
+
+.date-input {
+  font-size: 0.6em;
+}

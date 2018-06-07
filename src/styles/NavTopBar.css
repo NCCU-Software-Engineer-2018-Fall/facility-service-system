@@ -30,3 +30,7 @@
   outline: none;
   box-shadow: none;
 }
+
+.time-info span {
+  display: inline-block;
+}

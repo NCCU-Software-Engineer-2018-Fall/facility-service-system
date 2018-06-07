@@ -4,10 +4,11 @@ import { connect } from 'react-redux';
 import Sidebar from '../components/Sidebar';
 import { getAllClassroom } from '../api';
 import { recordAllClassroom } from '../actions/classroomAction';
+import { selectBuilding } from '../actions/appointmentActions';
 
 class BasedOnTimeSidebar extends Component {
   componentWillMount() {
-    Promise.resolve(getAllClassroom())
+    getAllClassroom()
       .then(doc => {
         this.props.recordAllClassroom(doc.data)
       });
@@ -18,7 +19,9 @@ class BasedOnTimeSidebar extends Component {
       <div>
         <Sidebar type="time"
           selectDates={this.props.selectDates}
-          classroom={this.props.classroom} />
+          classroom={this.props.classroom}
+          selectedBuilding={this.props.selectedBuilding}
+          selectBuilding={this.props.selectBuilding} />
       </div>
     );
   }
@@ -27,14 +30,18 @@ class BasedOnTimeSidebar extends Component {
 const mapStateToProps = (state) => {
   return {
     selectDates: state.appointmentReducer.selectDates,
-    classroom: state.classroomReducer.classroom
+    classroom: state.classroomReducer.classroom,
+    selectedBuilding: state.appointmentReducer.selectedBuilding
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     recordAllClassroom: (classroom) => {
-      dispatch(recordAllClassroom(classroom))
+      dispatch(recordAllClassroom(classroom));
+    },
+    selectBuilding: (building) => {
+      dispatch(selectBuilding(building));
     }
   }
 }

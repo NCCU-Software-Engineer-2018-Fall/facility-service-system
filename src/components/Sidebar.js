@@ -1,8 +1,10 @@
 import React from 'react';
 import { Row, Col, Button } from 'reactstrap';
 
-import { periodTime } from '../info';
+import { timeOfSymbol } from '../constant';
 import '../styles/Sidebar.css';
+import ChooseBorrowPeriodBlock from '../components/ChooseBorrowPeriodBlock';
+import SearchClassroomButton from '../containers/SearchClassroomButton';
 
 const Sidebar = (props) => {
   let sidebar = null;
@@ -11,7 +13,7 @@ const Sidebar = (props) => {
     <li>
       <Row className="text-info">
         <Col md="5">{`${aDate.date.getMonth() + 1} / ${aDate.date.getDate()}`}</Col>
-        <Col md="7">{`${periodTime[aDate.time]}`}</Col>
+        <Col md="7">{`${timeOfSymbol[aDate.time]}`}</Col>
       </Row>
     </li>
   );
@@ -20,6 +22,7 @@ const Sidebar = (props) => {
   const classroomList = classroom.map(room => {
     let roomName = '';
     let isRepeat = false;
+    let isSelected = false;
     for (let i = 0; i < room.classroom_name.length; i++) {
       if (isNaN(room.classroom_name[i]) === false)
         break;
@@ -32,8 +35,20 @@ const Sidebar = (props) => {
     }
     if (isRepeat === false) {
       hasExistedRoomName.push(roomName);
+      for (let i = 0; i < props.selectedBuilding.length; i++) {
+        if (props.selectedBuilding[i] === roomName)
+          return (
+            <Button size="sm" value={roomName}
+              onClick={() => { props.selectBuilding(roomName) }}>
+              {roomName}
+            </Button>
+          )
+      }
       return (
-        <Button outline size="sm" value={roomName}>{roomName}</Button>
+        <Button outline size="sm" value={roomName}
+          onClick={() => { props.selectBuilding(roomName) }}>
+          {roomName}
+        </Button>
       )
     }
   });
@@ -41,11 +56,6 @@ const Sidebar = (props) => {
   const someText = (
     selectDates.length === 0 ?
       <span className="text-danger">請選擇時段!</span> : '已選擇時段'
-  );
-
-  const submitButton = (
-    selectDates.length !== 0 ?
-      <Button color="primary">送出</Button> : null
   );
 
   if (type === 'time')
@@ -56,8 +66,7 @@ const Sidebar = (props) => {
         </div>
         <ul className="list-unstyled">
           <li className="sidebar-item">
-            <input type="checkbox" />
-            &nbsp;每星期都借
+            <ChooseBorrowPeriodBlock />
           </li>
           <li className="sidebar-item">選擇區域</li>
           <div className="place-button">
@@ -69,7 +78,7 @@ const Sidebar = (props) => {
             </ul>
           </li>
           <li className="sidebar-item">
-            {submitButton}
+            <SearchClassroomButton />
           </li>
         </ul>
       </div>

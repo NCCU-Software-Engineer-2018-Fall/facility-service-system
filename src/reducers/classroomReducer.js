@@ -5,7 +5,7 @@ const classroomReducer = (state = {
     case 'RECORD_ALL_CLASSROOM':
       state = {
         ...state,
-        classroom: action.payload
+        classroom: action.payload,
       };
       break;
     default:

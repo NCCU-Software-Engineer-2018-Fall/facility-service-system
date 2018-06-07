@@ -1,0 +1,19 @@
+.appointment-card-list {
+  width: 80%;
+  margin: auto;
+  margin-top: 50px;
+}
+
+.appointment-card {
+  margin-bottom: 50px;
+  margin: 20px;
+  text-align: center;
+}
+
+.appointment-card-header {
+  background-color:hsla(38, 45%, 86.3%, 100%);
+}
+
+.appointment-card-body {
+  background-color:hsla(38, 45%, 86.3%, 20%);
+}
