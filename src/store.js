@@ -4,6 +4,7 @@ import { persistStore, persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 
 import reducer from './reducers/index';
+import { loadState, saveState } from './localstorage';
 
 const persistConfig = {
   key: 'root',

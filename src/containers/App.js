@@ -7,15 +7,13 @@ import LoginContainer from '../containers/LoginContainer';
 
 class App extends Component {
   render() {
-    const currentPath = window.location.pathname
-    
     return (
       <div>
-        {currentPath.includes('login') ?
-          '' : <Protected />
-        }
-        <Route exact path="/" component={LoginContainer} />
-        <Route path="/login" component={LoginContainer} />
+        <Switch>
+          <Route exact path="/" component={LoginContainer} />
+          <Route path="/login" component={LoginContainer} />
+          <Protected />
+        </Switch>
       </div>
     );
   }

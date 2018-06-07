@@ -4,7 +4,7 @@ import timeReducer from './timeReducer';
 import styleReducer from './styleReducer';
 import appointmentReducer from './appointmentReducer';
 import classroomReducer from './classroomReducer';
-import preriodReducer from './preriodReducer';
+import periodReducer from './periodReducer';
 import loginReducer from './loginReducer';
 
 export default combineReducers({
@@ -12,6 +12,6 @@ export default combineReducers({
   styleReducer,
   appointmentReducer,
   classroomReducer,
-  preriodReducer,
+  periodReducer,
   loginReducer
 })

@@ -1,10 +1,18 @@
+import { loadState } from '../localstorage';
+
 const loginReducer = (
+  // state = {
+  //   studentId: loadState().studentId || '',
+  //   isLogin: loadState().isLogin || false
+  // }
   state = {
     studentName: '',
     studentId: '',
     userId: '',
     isLogin: false
-  },action
+  }
+  
+  ,action
 ) => {
   switch (action.type) {
     case 'SET_LOGIN':

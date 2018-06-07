@@ -3,6 +3,7 @@ import { Redirect } from 'react-router';
 
 import { connect } from 'react-redux';
 import { setLogin } from '../actions/loginAction';
+import store from '../store';
 
 import { fakeAuth } from './PrivateRoute';
 import { Card, CardHeader, CardBody, Button, Row, Col,
@@ -23,9 +24,9 @@ class Login extends React.Component {
           <Card>
             <CardHeader>登入</CardHeader>
             <CardBody>
-              <Form name="login">
+              <Form name="login" onSubmit={this.login}>
                   <Label for="stuentId">學號</Label>
-                  <Input type="text" id="studentId" name="stuentId"></Input>
+                  <Input type="text" id="studentId" name="stuentId" defaultValue="104306037"></Input>
               </Form>
             </CardBody>
             <Button onClick={() => {
@@ -40,14 +41,14 @@ class Login extends React.Component {
   }
 }
 
-const logState = (state) => {
+const mapStateToProps = (state) => {
   return {
     studentId: state.loginReducer.studentId,
     isLogin: state.loginReducer.isLogin
   };
 };
 
-const logDispatch = (dispatch) => {
+const mapDispatchToProps = (dispatch) => {
   return {
     setLogin: (studentId, isLogin) => {
       dispatch(setLogin(studentId, isLogin))
@@ -55,4 +56,10 @@ const logDispatch = (dispatch) => {
   }
 }
 
-export default connect(logState, logDispatch)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
+// const loginState = JSON.parse(localStorage.getItem('loginState')) || ''
+// if (loginState) {
+//   const studentId = loginState.studentId
+//   const isLogin = loginState.isLogin
+//   const re = setLogin(studentId, isLogin)     
+// }

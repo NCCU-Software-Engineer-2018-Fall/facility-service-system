@@ -1,10 +1,7 @@
 import React from 'react';
 import { Switch, Route, Link } from 'react-router-dom';
-import {
-  Navbar,
-  Nav,
-  NavItem,
-} from 'reactstrap';
+import { Navbar, Nav, NavItem, } from 'reactstrap';
+import { connect } from 'react-redux';
 
 import '../styles/NavTopBar.css';
 import NavTopBarOption from './NavTopBarOption';
@@ -46,4 +43,10 @@ const NavTopBar = (props) => {
   )
 };
 
-export default NavTopBar;
+const mapStateToProps = (state) => {
+  return {
+    studentId: state.loginReducer.studentId
+  }
+}
+
+export default connect(mapStateToProps)(NavTopBar);
