@@ -70,6 +70,12 @@ const appointmentReducer = (state = {
         borrowEndDate: ''
       }
       break;
+    case 'RECORD_CLASSROOM_APPOINTMENT':
+      state = {
+        ...state,
+        appointment: action.payload
+      }
+      break;
     default:
       break;
   }

@@ -26,8 +26,8 @@ export function setStartDate(date) {
 };
 
 export function setEndDate(date) {
-  return {
-    type: 'SET_END_DATE',
+return {
+  type: 'SET_END_DATE',
     payload: date
   }
 };
@@ -35,5 +35,12 @@ export function setEndDate(date) {
 export function resetAppointment() {
   return {
     type: 'RESET_APPOINTMENT'
+  }
+};
+
+export function recordClassroomAppointment(appointment) {
+  return {
+    type: 'RECORD_CLASSROOM_APPOINTMENT',
+    payload: appointment
   }
 };

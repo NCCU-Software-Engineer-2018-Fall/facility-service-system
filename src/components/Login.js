@@ -16,22 +16,25 @@ class Login extends React.Component {
     if (this.props.isLogin) {
       return <Redirect to="/system" />;
     }
-
     return (
-      <div>
+      <div >
         <Row className="login-modal">
         <Col md={{size: 4, offset: 4}}>
           <Card>
             <CardHeader>登入</CardHeader>
             <CardBody>
-              <Form name="login" onSubmit={this.login}>
+              <Form name="login" onSubmit={() => {
+                  const studentId = document.forms["login"]["studentId"];
+                  this.props.authenticate(studentId.value);
+              }}>
                   <Label for="stuentId">學號</Label>
-                  <Input type="text" id="studentId" name="stuentId" defaultValue="104306037"></Input>
+                  <Input type="text" id="studentId" name="stuentId" defaultValue="104703030"></Input>
               </Form>
             </CardBody>
-            <Button onClick={() => {
-                const studentId = document.forms["login"]["studentId"];
-                this.props.authenticate(studentId.value);
+            <Button 
+            onClick={() => {
+              const studentId = document.forms["login"]["studentId"];
+              this.props.authenticate(studentId.value);
             }}>Log in</Button>
           </Card>
         </Col>

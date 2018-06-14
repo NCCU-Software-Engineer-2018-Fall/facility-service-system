@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Row, Col } from 'reactstrap';
 
 import WeeklyCalendarContainer from '../containers/WeeklyCalendarContainer';
-import BasedOnTimeSidebar from '../containers/BasedOnTimeSidebar';
+import BasedOnRoomSidebar from '../containers/BasedOnRoomSidebar';
 
 
 const RoomLayout = ({ match }) => {
@@ -14,7 +14,7 @@ const RoomLayout = ({ match }) => {
     <Container fluid>
       <Row>
         <Col md="2" className="sidebar">
-          <BasedOnTimeSidebar />
+          <BasedOnRoomSidebar room={match.params.room} />
         </Col>
         <Col md="10" className="special-col">
           {calendar}

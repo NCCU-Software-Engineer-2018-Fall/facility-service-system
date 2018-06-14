@@ -20,8 +20,8 @@ class RoomSelect extends Component {
     const allClassroom = this.props.classroom
 
     const uni = a => [...new Set(a)]
-    let buildinglist = uni(fakeAllClassroom.map(i => i.building))
-    let roomlist = buildinglist.map(i => fakeAllClassroom.filter(room => room.building === i))
+    let buildinglist = uni(allClassroom.map(i => i.building))
+    let roomlist = buildinglist.map(i => allClassroom.filter(room => room.building === i))
     
     const buildingGroup = buildinglist.map((building, i) => 
     <Building key={i} name={building} classrooms={roomlist[i]} />)
@@ -51,89 +51,3 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 export default connect(mapsStateToProps, mapDispatchToProps)(RoomSelect);
-
-const fakeAllClassroom = [
-  {
-    "id": "a33110b8-6766-448b-9107-d4ce8ca710d4",
-    "classroom_id": 4,
-    "classroom_name": "大仁樓200101",
-    "building": '大仁樓',
-    "floor": null,
-    "state": "1",
-    "creation_time": "2018-05-20T15:13:12.019Z"
-  },
-  {
-    "id": "a33110b8-6766-448b-9107-d4ce8ca710d4",
-    "classroom_id": 4,
-    "classroom_name": "大仁樓200102",
-    "building": '大仁樓',
-    "floor": null,
-    "state": "1",
-    "creation_time": "2018-05-20T15:13:12.019Z"
-  },
-  {
-    "id": "a33110b8-6766-448b-9107-d4ce8ca710d4",
-    "classroom_id": 4,
-    "classroom_name": "大仁樓200103",
-    "building": '大仁樓',
-    "floor": null,
-    "state": "1",
-    "creation_time": "2018-05-20T15:13:12.019Z"
-  },
-  {
-    "id": "a33110b8-6766-448b-9107-d4ce8ca710d4",
-    "classroom_id": 4,
-    "classroom_name": "大勇樓200101",
-    "building": '大勇樓',
-    "floor": null,
-    "state": "1",
-    "creation_time": "2018-05-20T15:13:12.019Z"
-  },
-  {
-    "id": "a33110b8-6766-448b-9107-d4ce8ca710d4",
-    "classroom_id": 4,
-    "classroom_name": "大勇樓200102",
-    "building": '大勇樓',
-    "floor": null,
-    "state": "1",
-    "creation_time": "2018-05-20T15:13:12.019Z"
-  },
-  {
-    "id": "a33110b8-6766-448b-9107-d4ce8ca710d4",
-    "classroom_id": 4,
-    "classroom_name": "大勇樓200103",
-    "building": '大勇樓',
-    "floor": null,
-    "state": "1",
-    "creation_time": "2018-05-20T15:13:12.019Z"
-  },
-  {
-    "id": "a33110b8-6766-448b-9107-d4ce8ca710d4",
-    "classroom_id": 4,
-    "classroom_name": "大智樓200101",
-    "building": '大智樓',
-    "floor": null,
-    "state": "1",
-    "creation_time": "2018-05-20T15:13:12.019Z"
-  },
-  {
-    "id": "a33110b8-6766-448b-9107-d4ce8ca710d4",
-    "classroom_id": 4,
-    "classroom_name": "大智樓200102",
-    "building": '大智樓',
-    "floor": null,
-    "state": "1",
-    "creation_time": "2018-05-20T15:13:12.019Z"
-  },
-  {
-    "id": "a33110b8-6766-448b-9107-d4ce8ca710d4",
-    "classroom_id": 4,
-    "classroom_name": "大智樓200103",
-    "building": '大智樓',
-    "floor": null,
-    "state": "1",
-    "creation_time": "2018-05-20T15:13:12.019Z"
-  },
-
-  
-]
