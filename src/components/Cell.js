@@ -7,7 +7,12 @@ class Cell extends React.Component {
     let {day, month, year} = this.props.date;
     let className = ['cell', toggleClass];
     return (
-      <div className={className.join(' ').trim()} onClick={() => { selectDateHandler(new Date(year, month - 1, day), symbol); console.log(symbol);}}></div>
+      <div className={className.join(' ').trim()} 
+      onClick={() => { 
+        if(toggleClass == 'disabled'){return}
+        selectDateHandler(new Date(year, month - 1, day), symbol); 
+        console.log(symbol);
+      }}></div>
     )
   }
 }

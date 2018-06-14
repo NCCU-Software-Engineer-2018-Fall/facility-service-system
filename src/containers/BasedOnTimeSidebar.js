@@ -4,10 +4,11 @@ import { connect } from 'react-redux';
 import Sidebar from '../components/Sidebar';
 import { getAllClassroom } from '../api';
 import { recordAllClassroom } from '../actions/classroomAction';
-import { selectBuilding } from '../actions/appointmentActions';
+import { selectBuilding, resetAppointment } from '../actions/appointmentActions';
 
 class BasedOnTimeSidebar extends Component {
   componentWillMount() {
+    this.props.resetAppointment()
     getAllClassroom()
       .then(doc => {
         this.props.recordAllClassroom(doc.data)
@@ -42,6 +43,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     selectBuilding: (building) => {
       dispatch(selectBuilding(building));
+    },
+    resetAppointment: () => {
+      dispatch(resetAppointment());
     }
   }
 }

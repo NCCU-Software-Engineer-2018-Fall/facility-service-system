@@ -3,9 +3,7 @@ import { Redirect } from 'react-router';
 
 import { connect } from 'react-redux';
 import { setLogin } from '../actions/loginAction';
-import store from '../store';
 
-import { fakeAuth } from './PrivateRoute';
 import { Card, CardHeader, CardBody, Button, Row, Col,
 Form, Label, Input } from 'reactstrap';
 import '../styles/Login.css';
@@ -60,9 +58,3 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
-// const loginState = JSON.parse(localStorage.getItem('loginState')) || ''
-// if (loginState) {
-//   const studentId = loginState.studentId
-//   const isLogin = loginState.isLogin
-//   const re = setLogin(studentId, isLogin)     
-// }

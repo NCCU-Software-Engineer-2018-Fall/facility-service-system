@@ -3,7 +3,9 @@ const appointmentReducer = (state = {
   selectedBuilding: [],
   isBorrowEveryWeek: false,
   borrowStartDate: '',
-  borrowEndDate: ''
+  borrowEndDate: '',
+  appointments: [],
+  isLoadAppointment: false
 }, action) => {
   switch (action.type) {
     case 'SELECT_DATE':
@@ -67,13 +69,16 @@ const appointmentReducer = (state = {
         selectedBuilding: [],
         isBorrowEveryWeek: false,
         borrowStartDate: '',
-        borrowEndDate: ''
+        borrowEndDate: '',
+        appointments: [],
+        isLoadAppointment: false
       }
       break;
     case 'RECORD_CLASSROOM_APPOINTMENT':
       state = {
         ...state,
-        appointment: action.payload
+        appointments: action.payload,
+        isLoadAppointment: true
       }
       break;
     default:

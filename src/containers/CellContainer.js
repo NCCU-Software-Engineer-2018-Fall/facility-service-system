@@ -6,7 +6,7 @@ import Cell from '../components/Cell';
 
 class CellContainer extends Component {
   render() {
-    let { symbol, date, selectDates } = this.props;
+    let { symbol, date, selectDates, appointments } = this.props;
     let className = '';
     for(let i = 0; i < selectDates.length; i++) {
       if(selectDates[i].date.getFullYear() === date.year &&
@@ -16,7 +16,14 @@ class CellContainer extends Component {
           className = 'selected-day';
         }
     }
-
+    if (this.props.isLoadAppointment) {
+      for(let i = 0; i < appointments.length; i++) {
+        let str = `${date.year}-${date.month<10?'0':''}${date.month}-${date.day<10?'0':''}${date.day}`
+        if (appointments[i].reserved_date == str && appointments[i].symbol === symbol) {
+            className = 'disabled';
+          }
+      }
+    }
     return (
       <Cell toggleClass={className} selectDateHandler={this.props.selectDate} symbol={symbol} date={date} />
     );
@@ -25,7 +32,9 @@ class CellContainer extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    selectDates: state.appointmentReducer.selectDates
+    selectDates: state.appointmentReducer.selectDates,
+    appointments: state.appointmentReducer.appointments,
+    isLoadAppointment: state.appointmentReducer.isLoadAppointment
   }
 }
 

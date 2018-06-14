@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Sidebar from '../components/Sidebar';
-import { getAppointmentByClassroom, postAppointment } from '../api';
+import { getAppointmentByClassroom } from '../api';
 import { recordClassroomAppointment } from '../actions/appointmentActions';
 
 class BasedOnRoomSidebar extends Component {
@@ -12,7 +12,6 @@ class BasedOnRoomSidebar extends Component {
     Promise.resolve(getAppointmentByClassroom(matchClassroom[0].id))
       .then(doc => {
         this.props.recordClassroomAppointment(doc.data)
-        console.log(doc.data);
       });
   }
 
@@ -31,7 +30,6 @@ class BasedOnRoomSidebar extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    appointments: state.appointmentReducer.appointments,
     selectDates: state.appointmentReducer.selectDates,
     classroom: state.classroomReducer.classroom,
     selectedBuilding: state.appointmentReducer.selectedBuilding
