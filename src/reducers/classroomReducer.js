@@ -1,11 +1,17 @@
 const classroomReducer = (state = {
-  classroom: []
+  classroom: [],
+  selectedClassroom: null
 }, action) => {
   switch (action.type) {
     case 'RECORD_ALL_CLASSROOM':
       state = {
         ...state,
         classroom: action.payload,
+      };
+      break;
+    case 'SELECTED_CLASSROOM':
+      state = {
+        selectedClassroom: action.payload
       };
       break;
     default:

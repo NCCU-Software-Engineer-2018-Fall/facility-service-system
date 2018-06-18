@@ -70,6 +70,11 @@ const appointmentReducer = (state = {
         isBorrowEveryWeek: false,
         borrowStartDate: '',
         borrowEndDate: '',
+      }
+      break;
+    case 'RESET_CLASSROOM_APPOINTMENT':
+      state = {
+        ...state,
         appointments: [],
         isLoadAppointment: false
       }

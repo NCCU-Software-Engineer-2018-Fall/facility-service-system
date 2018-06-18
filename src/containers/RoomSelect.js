@@ -8,17 +8,17 @@ import Building from '../components/Building';
 
 import '../styles/RoomSelect.css'
 
-class RoomSelect extends Component {
+class RoomSelect extends Component {  
   componentWillMount() {
     Promise.resolve(getAllClassroom())
       .then(doc => {
         this.props.recordAllClassroom(doc.data)
-      });
+      })
   }
-
+  
   render () {
     const allClassroom = this.props.classroom
-
+    
     const uni = a => [...new Set(a)]
     let buildinglist = uni(allClassroom.map(i => i.building))
     let roomlist = buildinglist.map(i => allClassroom.filter(room => room.building === i))

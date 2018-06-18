@@ -6,8 +6,9 @@ import RoomSelect from '../containers/RoomSelect';
 
 const RoomSearchRouter = ({ match }) => (
   <Switch>
-    <Route exact path='/room' component={RoomSelect} />
-    <Route path={`${match.url}/:building/:room`} component={RoomLayout} />
+    <Route exact path={`${match.url}/:building/:room/:type`} component={RoomLayout} />
+    <Route path={`${match.url}/:building/:room/:type/:year/:month/:date`} component={RoomLayout} />
+    <Route path='/room' component={RoomSelect} />
   </Switch>
 );
 

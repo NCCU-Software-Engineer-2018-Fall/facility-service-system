@@ -21,9 +21,25 @@ class MonthControlWidget extends Component {
       backYear--;
       backMonth = 11;
     }
+
+    const urlsplit = this.props.match.url.split('/')
+    let backUrl, forwardUrl
+    if (urlsplit.includes('time')) {
+      backUrl = `/time/month/${backYear}/${backMonth + 1}/1`
+    }
+    else if (urlsplit.includes('room')) {
+      backUrl = `/room/${urlsplit[2]}/${urlsplit[3]}/month/${backYear}/${backMonth + 1}/1`
+    }
+    if (urlsplit.includes('time')) {
+      forwardUrl = `/time/month/${forwardYear}/${forwardMonth + 1}/1`
+    }
+    else if (urlsplit.includes('room')) {
+      forwardUrl = `/room/${urlsplit[2]}/${urlsplit[3]}/month/${forwardYear}/${forwardMonth + 1}/1`
+    }
+    
     return (
       <span className="navbar-text ml-auto time-info">
-        <Link to={`/time/month/${backYear}/${backMonth + 1}/1`}>
+        <Link to={backUrl}>
           <Button outline
             onClick={() => {
               this.props.slideToRight();
@@ -35,7 +51,7 @@ class MonthControlWidget extends Component {
           </Button>
         </Link>
         <span>{` ${this.props.firstDate.getFullYear()} 年 ${this.props.firstDate.getMonth() + 1} 月 `}</span>
-        <Link to={`/time/month/${forwardYear}/${forwardMonth + 1}/1`}>
+        <Link to={forwardUrl}>
           <Button outline
             onClick={() => {
               this.props.slideToLeft();

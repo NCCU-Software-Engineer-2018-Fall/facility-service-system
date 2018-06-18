@@ -25,6 +25,12 @@ const NavTopBar = (props) => {
         <Route path="/time" component={MonthControlWidget} />
       </Switch>
       
+      <Switch>
+        <Route exact path="/system" />
+        <Route path="/room/:building/:room/month" component={MonthControlWidget} />
+        <Route path="/room/:building/:room/week" component={WeekControlWidget} />
+      </Switch>
+      
       <Nav className="ml-auto">
         <NavItem>
           <a className="nav-link">

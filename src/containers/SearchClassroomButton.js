@@ -7,7 +7,7 @@ import '../styles/SearchClassroomButton.css';
 import { getAppointmentByClassroom, postAppointment } from '../api';
 import { symbolOfTime, timeOfSymbol, idOfSymbol } from '../constant';
 import { formatDateNumber } from '../util';
-import { resetAppointment } from '../actions/appointmentActions';
+import { resetAppointment, resetClassroomAppointment } from '../actions/appointmentActions';
 
 class SearchClassroomButton extends Component {
   constructor(props) {
@@ -18,6 +18,7 @@ class SearchClassroomButton extends Component {
       selectedClassroom: '',
       selectedClassroomId: ''
     };
+    this.props.resetClassroomAppointment()
   }
 
   selectClassroom = (classroomId, classroomName) => {
@@ -277,7 +278,10 @@ const mapDispatchToProps = (dispatch) => {
   return {
     resetAppointment: () => {
       dispatch(resetAppointment());
-    }
+    },
+    resetClassroomAppointment: () => {
+      dispatch(resetClassroomAppointment());
+    },
   }
 }
 

@@ -5,10 +5,11 @@ import { timeOfSymbol } from '../constant';
 import '../styles/Sidebar.css';
 import ChooseBorrowPeriodBlock from '../components/ChooseBorrowPeriodBlock';
 import SearchClassroomButton from '../containers/SearchClassroomButton';
+import SearchTimeButton from '../containers/SearchTimeButton';
 
 const Sidebar = (props) => {
   let sidebar = null;
-  let { type, selectDates, classroom } = props;
+  let { type, selectDates, classroom, selectedClassroom } = props;
   const dateList = selectDates.map(aDate =>
     <li>
       <Row className="text-info">
@@ -79,6 +80,28 @@ const Sidebar = (props) => {
           </li>
           <li className="sidebar-item">
             <SearchClassroomButton />
+          </li>
+        </ul>
+      </div>
+    );
+    
+  if (type === 'room')
+    sidebar = (
+      <div>
+        <div className="sidebar-header">
+          <h5>篩選條件</h5>
+        </div>
+        <ul className="list-unstyled">
+          <li className="sidebar-item">
+            <ChooseBorrowPeriodBlock />
+          </li>
+          <li className="sidebar-item">{someText}
+            <ul className="date-list">
+              {dateList}
+            </ul>
+          </li>
+          <li className="sidebar-item">
+            <SearchTimeButton selectedClassroom={selectedClassroom} />
           </li>
         </ul>
       </div>

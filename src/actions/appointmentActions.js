@@ -38,6 +38,12 @@ export function resetAppointment() {
   }
 };
 
+export function resetClassroomAppointment() {
+  return {
+    type: 'RESET_CLASSROOM_APPOINTMENT',
+  }
+};
+
 export function recordClassroomAppointment(appointment) {
   return {
     type: 'RECORD_CLASSROOM_APPOINTMENT',

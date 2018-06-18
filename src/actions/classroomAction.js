@@ -4,3 +4,10 @@ export function recordAllClassroom(classroom) {
     payload: classroom
   }
 };
+
+export function selectedClassroom(classroom) {
+  return {
+    type: 'SELECTED_CLASSROOM',
+    payload: classroom
+  }
+};

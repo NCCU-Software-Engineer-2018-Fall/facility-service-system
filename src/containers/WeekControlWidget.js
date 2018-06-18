@@ -16,15 +16,27 @@ class WeekControlWidget extends Component {
     if(this.props.weekFirstDate.getMonth() !== weekLastDate.getMonth())
       content += ` - ${weekLastDate.getMonth() + 1} 月`
 
+    const urlsplit = this.props.match.url.split('/')
+    let backUrl, forwardUrl
+    console.log(urlsplit);
+    if (urlsplit.includes('time')) {
+      backUrl = `/time/week/${lastWeek.getFullYear()}/${lastWeek.getMonth() + 1}/${lastWeek.getDate()}`
+      forwardUrl = `/time/week/${nextWeek.getFullYear()}/${nextWeek.getMonth() + 1}/${nextWeek.getDate()}`
+    }
+    else if (urlsplit.includes('room')) {
+      backUrl = `/room/${urlsplit[2]}/${urlsplit[3]}/week/${lastWeek.getFullYear()}/${lastWeek.getMonth() + 1}/${lastWeek.getDate()}`
+      forwardUrl = `/room/${urlsplit[2]}/${urlsplit[3]}/week/${nextWeek.getFullYear()}/${nextWeek.getMonth() + 1}/${nextWeek.getDate()}`
+    }
+    
     return (
       <span className="navbar-text ml-auto time-info">
-        <Link to={`/time/week/${lastWeek.getFullYear()}/${lastWeek.getMonth() + 1}/${lastWeek.getDate()}`}>
+        <Link to={backUrl}>
           <Button outline>
             <i className="fas fa-angle-left"></i>
           </Button>
         </Link>
         <span> {content} </span>
-        <Link to={`/time/week/${nextWeek.getFullYear()}/${nextWeek.getMonth() + 1}/${nextWeek.getDate()}`}>
+        <Link to={forwardUrl}>
           <Button outline>
             <i className="fas fa-angle-right"></i>
           </Button>

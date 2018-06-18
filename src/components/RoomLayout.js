@@ -1,14 +1,28 @@
 import React from 'react';
 import { Container, Row, Col } from 'reactstrap';
 
-import WeeklyCalendarContainer from '../containers/WeeklyCalendarContainer';
 import BasedOnRoomSidebar from '../containers/BasedOnRoomSidebar';
+import MonthlyCalendarContainer from '../containers/MonthlyCalendarContainer';
+import WeeklyCalendarContainer from '../containers/WeeklyCalendarContainer';
 
 
 const RoomLayout = ({ match }) => {
   let calendar = null
-  calendar = <WeeklyCalendarContainer />
-  console.log(match.params.building, match.params.room);
+  if (match.params.type === undefined) {
+    calendar = <MonthlyCalendarContainer />
+  }
+  else if (match.params.type === 'month'){
+    calendar = <MonthlyCalendarContainer
+      year={match.params.year}
+      month={match.params.month}
+      date={match.params.date} />
+  }
+  else if (match.params.type === 'week'){
+    calendar = <WeeklyCalendarContainer
+      year={match.params.year}
+      month={match.params.month}
+      date={match.params.date} />
+  }
 
   return (
     <Container fluid>
