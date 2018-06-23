@@ -32,6 +32,20 @@ const NavTopBar = (props) => {
       </Switch>
       
       <Nav className="ml-auto">
+  
+        <Route path="/room/:building/:room" render={() => {
+          const urlsplit = props.location.pathname.split('/')
+          if (urlsplit.includes('room')) {
+            return (
+            <NavItem>
+              <a className="nav-link">
+                {urlsplit[3]}
+              </a>
+            </NavItem>
+            )
+          }else return null
+        }} />
+
         <NavItem>
           <a className="nav-link">
             {props.studentName}
@@ -51,7 +65,8 @@ const NavTopBar = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    studentId: state.loginReducer.studentId
+    studentId: state.loginReducer.studentId,
+    selectedClassroom: state.classroomReducer.selectedClassroom
   }
 }
 

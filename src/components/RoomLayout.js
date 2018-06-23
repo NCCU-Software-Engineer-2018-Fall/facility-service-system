@@ -28,7 +28,7 @@ const RoomLayout = ({ match }) => {
     <Container fluid>
       <Row>
         <Col md="2" className="sidebar">
-          <BasedOnRoomSidebar room={match.params.room} />
+          <BasedOnRoomSidebar selectedClassroom={match.params.room} selectedBuilding={match.params.building}/>
         </Col>
         <Col md="10" className="special-col">
           {calendar}

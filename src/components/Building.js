@@ -1,8 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
 import { Collapse, ListGroup, ListGroupItem, Col } from 'reactstrap';
-import { selectedClassroom } from '../actions/classroomAction';
+import RoomLink from './RoomLink';
 
 import '../styles/Building.css';
 
@@ -17,17 +15,15 @@ class Building extends React.Component{
     this.setState({ collapse: !this.state.collapse });
   }
 
-  handleClick() {
-    // this.props.selectedClassroom() 
-  }
-
   render() {
     const classrooms = this.props.classrooms
     const classroom = classrooms.map(room => 
       <ListGroup>
-        <ListGroupItem tag="a" action>
-          <Link className="room-link" to={`/room/${room.building}/${room.classroom_name}/month`} 
-          onClick={this.handleClick()} >{room.classroom_name}</Link>
+        <ListGroupItem action>
+          <RoomLink 
+          toPath={`/room/${room.building}/${room.classroom_name}/month`}
+          classroomName={room.classroom_name}
+          room={room} />
         </ListGroupItem>
       </ListGroup>)
 
@@ -41,19 +37,5 @@ class Building extends React.Component{
     )
   }
 }
-
-// const mapStateToProps = (state) => {
-//   return{
-//     classroom: state.classroomReducer.classroom
-//   }
-// }
-
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     selectedClassroom: () => {
-//       dispatch(selectedClassroom());
-//     }
-//   }
-// }
 
 export default Building;

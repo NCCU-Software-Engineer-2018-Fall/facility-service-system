@@ -11,19 +11,49 @@ import { resetAppointment } from '../actions/appointmentActions';
 class SearchTimeButton extends React.Component {
   constructor (props) {
     super(props)
-    let selectDates = this.props.selectDates
+    // let selectDates = this.props.selectDates
     this.state ={
-      selectDates: selectDates,
+      bookdate: []
     }
   }
 
   reset() {
     this.setState({
-      selectDates: []
+      selectDates: [],
+      bookdate: []
     })
   }
 
-  handleClick() {
+  findAllBookDate = (selectedDate, startDate, endDate) => {
+    let allBookDate = [...selectedDate];
+    let _startDate = new Date(startDate.split('-')[0], Number(startDate.split('-')[1]) - 1, startDate.split('-')[2]);
+    let _endDate = new Date(endDate.split('-')[0], Number(endDate.split('-')[1]) - 1, endDate.split('-')[2]);
+    for (let i = 0; i < selectedDate.length; i++) {
+      let time = selectedDate[i].time;
+      let changedDate = new Date(selectedDate[i].date.getTime());
+      while (changedDate.setDate(changedDate.getDate() - 7) >= _startDate.getTime())
+        allBookDate.push({ date: new Date(changedDate.getTime()), time });
+      changedDate = new Date(selectedDate[i].date.getTime());
+      while (changedDate.setDate(changedDate.getDate() + 7) <= _endDate.getTime())
+        allBookDate.push({ date: new Date(changedDate.getTime()), time });
+    }
+    return allBookDate;
+  }
+  
+  searchTime = (selectedDate, option) => {
+    let bookdate = selectedDate
+    if (option.isBorrowEveryWeek && option.borrowStartDate && option.borrowEndDate) {
+      bookdate = this.findAllBookDate(selectedDate, option.borrowStartDate, option.borrowEndDate)
+      this.setState({
+        bookdate
+      })
+    }
+    return bookdate
+  }
+
+  handleClick(selectedDate, option) {
+    let bookdate = this.searchTime(selectedDate, option)
+    
     let availableClassroom = `
       <div class="pop-up-content">
         <p class="pop-up-content-left">用途：</p>
@@ -36,7 +66,7 @@ class SearchTimeButton extends React.Component {
         <p class="pop-up-content-left">預訂時間：</p>
           <ul class="pop-up-content-left">
       `
-    for (let selectedPeriod of this.props.selectedDate) {
+    for (let selectedPeriod of bookdate) {
       let date = `${selectedPeriod.date.getFullYear()}-${selectedPeriod.date.getMonth() + 1}-${selectedPeriod.date.getDate()}`;
       let period = selectedPeriod.time
       availableClassroom += `<li>
@@ -68,7 +98,7 @@ class SearchTimeButton extends React.Component {
       showLoaderOnConfirm: true,
       preConfirm: () => {
         let time = [];
-        for (let aDate of this.props.selectedDate) {
+        for (let aDate of bookdate) {
           let timeSlot = {
             date: `${aDate.date.getFullYear()}-${formatDateNumber(aDate.date.getMonth() + 1)}-${formatDateNumber(aDate.date.getDate())}`,
             period_id: idOfSymbol[aDate.time]
@@ -89,15 +119,25 @@ class SearchTimeButton extends React.Component {
       this.props.resetAppointment();
       this.reset()
       console.log('reset');
+      if (result.value) {
+        swal({
+          type: 'success',
+          title: '教室已預借完成！',
+          allowOutsideClick: false
+        });
+      }
     })
   }
   
   render () {
-    console.log(this.props);
     if (this.props.selectedDate.length !== 0) {    
       return (
         <Button color="primary" onClick={() => {
-          this.handleClick()
+          this.handleClick(this.props.selectedDate, {
+            isBorrowEveryWeek: this.props.isBorrowEveryWeek,
+            borrowStartDate: this.props.borrowStartDate,
+            borrowEndDate: this.props.borrowEndDate
+          })
         }} >
         確認借用
         </Button>
@@ -110,7 +150,10 @@ class SearchTimeButton extends React.Component {
 const mapStateToProps = (state) => {
   return{
     selectedDate: state.appointmentReducer.selectDates,
-    userId: state.loginReducer.userId
+    userId: state.loginReducer.userId,
+    isBorrowEveryWeek: state.appointmentReducer.isBorrowEveryWeek,
+    borrowStartDate: state.appointmentReducer.borrowStartDate,
+    borrowEndDate: state.appointmentReducer.borrowEndDate,
 
   }
 }

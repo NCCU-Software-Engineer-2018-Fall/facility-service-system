@@ -26,14 +26,10 @@ class MonthControlWidget extends Component {
     let backUrl, forwardUrl
     if (urlsplit.includes('time')) {
       backUrl = `/time/month/${backYear}/${backMonth + 1}/1`
-    }
-    else if (urlsplit.includes('room')) {
-      backUrl = `/room/${urlsplit[2]}/${urlsplit[3]}/month/${backYear}/${backMonth + 1}/1`
-    }
-    if (urlsplit.includes('time')) {
       forwardUrl = `/time/month/${forwardYear}/${forwardMonth + 1}/1`
     }
     else if (urlsplit.includes('room')) {
+      backUrl = `/room/${urlsplit[2]}/${urlsplit[3]}/month/${backYear}/${backMonth + 1}/1`
       forwardUrl = `/room/${urlsplit[2]}/${urlsplit[3]}/month/${forwardYear}/${forwardMonth + 1}/1`
     }
     

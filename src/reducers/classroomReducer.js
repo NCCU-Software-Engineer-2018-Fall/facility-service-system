@@ -11,6 +11,7 @@ const classroomReducer = (state = {
       break;
     case 'SELECTED_CLASSROOM':
       state = {
+        ...state,
         selectedClassroom: action.payload
       };
       break;
