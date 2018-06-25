@@ -34,3 +34,13 @@
 .time-info span {
   display: inline-block;
 }
+
+.to-current-month {
+  text-decoration: none;
+  color: #7D848E !important;
+}
+
+.to-current-month:hover {
+  background-color: #E0E0E0;
+  text-decoration: none;
+}

@@ -4,7 +4,7 @@ import { Button } from 'reactstrap';
 import swal from 'sweetalert2';
 
 import { formatDateNumber } from '../util';
-import { idOfSymbol } from '../constant';
+import { idOfSymbol, timeOfSymbol } from '../constant';
 import { postAppointment } from '../api';
 import { resetAppointment } from '../actions/appointmentActions';
 
@@ -68,7 +68,7 @@ class SearchTimeButton extends React.Component {
       `
     for (let selectedPeriod of bookdate) {
       let date = `${selectedPeriod.date.getFullYear()}-${selectedPeriod.date.getMonth() + 1}-${selectedPeriod.date.getDate()}`;
-      let period = selectedPeriod.time
+      let period = timeOfSymbol[selectedPeriod.time]
       availableClassroom += `<li>
             <div class="row">
               <div class="col-4">
